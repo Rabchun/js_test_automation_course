@@ -8,6 +8,10 @@ export class LoginPage {
     }
 
     async open(page: Page): Promise<void> {
-        await page.goto(this.url);
+        try {
+            await page.goto(this.url);
+        } catch (error) {
+            console.error(`Failed to open page at ${this.url}:`, error);
+        }
     }
 }
