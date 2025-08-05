@@ -1,3 +1,5 @@
+//survey
+
 const prompt = require("prompt-sync")();
 let Survey = {
 name: prompt("Імʼя:"),
