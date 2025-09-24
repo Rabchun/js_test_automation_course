@@ -1,36 +1,38 @@
 // Create an array with at least 5 test scores
-const scores = [11, 8, 10, 12, 8, 9];
+const scores = [31, 8, 15, 22, 8, 9];
 
 // Add a new grade to the array
 scores.push(12);
 console.log(scores);
 
-// Remove the lowest grade (Not taken into account in subsequent tasks!)
+// Remove the lowest grade
 function excludeLowest(scores){
     const min = Math.min(...scores);
     return scores.filter(value => value !== min);
 }
 console.log(excludeLowest(scores))
 
+const cleanedScores = excludeLowest(scores);
+
 // Calculate sum of grades
-function sum(scores){
+function sum(cleanedScores){
     let previousSum = 0;
-    scores.forEach(score => {
+    cleanedScores.forEach(score => {
         previousSum += score;
     })
     return previousSum;
 }
-console.log(sum(scores))
+console.log(sum(cleanedScores))
 
 // Calculate and display the average grade
-function averageGrade(scores){
-   return sum(scores) / scores.length;
+function averageGrade(cleanedScores){
+   return sum(cleanedScores) / cleanedScores.length;
 }
-console.log(averageGrade(scores))
+console.log(averageGrade(cleanedScores))
 
 // Show how many grades are above 12 (made it universal)
-function countBelowX(scores,x=12){
-    const res = scores.filter(value => value < x);
+function countAboveX(cleanedScores,x=12){
+    const res = cleanedScores.filter(value => value > x);
     return res.length;
 }
-console.log(countBelowX(scores))
+console.log(countAboveX(cleanedScores))
