@@ -23,7 +23,7 @@ jobs:
 
       - name: Run API Tests
         run: |
-          newman run tests/my_api_tests.postman_collection.json \
+          newman run tests/collection.json \
      
             --reporters cli,junit \
             --reporter-junit-export results.xml
