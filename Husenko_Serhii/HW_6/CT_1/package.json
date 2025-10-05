@@ -1,0 +1,13 @@
+{
+  "name": "ct_1",
+  "version": "1.0.0",
+  "main": "coding_task1.spec.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.4.0"
+  }
+}
