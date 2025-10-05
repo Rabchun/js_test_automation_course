@@ -1,0 +1,29 @@
+name: Run API Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run API Tests
+        run: |
+          newman run tests/my_api_tests.postman_collection.json \
+            -e tests/dev_environment.postman_environment.json \
+            --reporters cli,junit \
+            --reporter-junit-export results.xml
